@@ -9,8 +9,8 @@ type Props = {
 };
 
 const ContactUs = ({ setSelectedPage }: Props) => {
-  const inputStyles = `mb-5 w-full rounded-lg bg-primary-300
-  px-5 py-3 placeholder-white`;
+  const inputStyles = `mb-5 w-full rounded-lg bg-secondary-500
+  px-5 py-3 placeholder-bg-primary-500`;
 
   const {
     register,
@@ -27,9 +27,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
 
   return (
     <section id="contactus" className="mx-auto w-5/6 pt-24 pb-32">
-      <motion.div
-        onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}
-      >
+      <motion.div onViewportEnter={() => setSelectedPage(SelectedPage.ContactUs)}>
         {/* HEADER */}
         <motion.div
           className="md:w-3/5"
@@ -43,12 +41,14 @@ const ContactUs = ({ setSelectedPage }: Props) => {
           }}
         >
           <HText>
-            <span className="text-primary-500">JOIN NOW</span> TO GET IN SHAPE
+            <span className="text-primary-500">CONTACT US NOW</span> TO START YOUR GROWTH JOURNEY
           </HText>
+          <p className="mt-5">
+            Address : Block B 2-602, Leisure Commerce Square, 9, Jln PJS 8/9, Bandar Sunway, 46150 Petaling Jaya,
+            Selangor,Malaysia.
+          </p>
           <p className="my-5">
-            Congue adipiscing risus commodo placerat. Tellus et in feugiat nisl
-            sapien vel rhoncus. Placerat at in enim pellentesque. Nulla
-            adipiscing leo egestas nisi elit risus sit. Nunc cursus sagittis.
+            <a href="mailto:alex@waeeducation.online">Email: alex@waeeducation.online</a>
           </p>
         </motion.div>
 
@@ -68,9 +68,15 @@ const ContactUs = ({ setSelectedPage }: Props) => {
             <form
               target="_blank"
               onSubmit={onSubmit}
-              action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
+              action="https://formsubmit.co/6a6ef86633936bcec2297c77512343a9"
               method="POST"
             >
+              {errors.name && (
+                <p className="mb-1 text-primary-500">
+                  {errors.name.type === "required" && "This field is required."}
+                  {errors.name.type === "maxLength" && "Max length is 100 char."}
+                </p>
+              )}
               <input
                 className={inputStyles}
                 type="text"
@@ -80,14 +86,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 100,
                 })}
               />
-              {errors.name && (
+
+              {errors.email && (
                 <p className="mt-1 text-primary-500">
-                  {errors.name.type === "required" && "This field is required."}
-                  {errors.name.type === "maxLength" &&
-                    "Max length is 100 char."}
+                  {errors.email.type === "required" && "This field is required."}
+                  {errors.email.type === "pattern" && "Invalid email address."}
                 </p>
               )}
-
               <input
                 className={inputStyles}
                 type="text"
@@ -97,14 +102,13 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                 })}
               />
-              {errors.email && (
+
+              {errors.message && (
                 <p className="mt-1 text-primary-500">
-                  {errors.email.type === "required" &&
-                    "This field is required."}
-                  {errors.email.type === "pattern" && "Invalid email address."}
+                  {errors.message.type === "required" && "This field is required."}
+                  {errors.message.type === "maxLength" && "Max length is 2000 char."}
                 </p>
               )}
-
               <textarea
                 className={inputStyles}
                 placeholder="MESSAGE"
@@ -115,14 +119,6 @@ const ContactUs = ({ setSelectedPage }: Props) => {
                   maxLength: 2000,
                 })}
               />
-              {errors.message && (
-                <p className="mt-1 text-primary-500">
-                  {errors.message.type === "required" &&
-                    "This field is required."}
-                  {errors.message.type === "maxLength" &&
-                    "Max length is 2000 char."}
-                </p>
-              )}
 
               <button
                 type="submit"
@@ -144,13 +140,7 @@ const ContactUs = ({ setSelectedPage }: Props) => {
               visible: { opacity: 1, y: 0 },
             }}
           >
-            <div className="w-full before:absolute before:-bottom-20 before:-right-10 before:z-[-1] md:before:content-evolvetext">
-              <img
-                className="w-full"
-                alt="contact-us-page-graphic"
-                src={ContactUsPageGraphic}
-              />
-            </div>
+            <img className="w-full rounded-2xl" alt="contact-us-page-graphic" src={ContactUsPageGraphic} />
           </motion.div>
         </div>
       </motion.div>

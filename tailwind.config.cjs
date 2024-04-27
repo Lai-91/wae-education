@@ -4,19 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "gray-20": "#F8F4EB",
-        "gray-50": "#EFE6E6",
+        "gray-20": "#F9F7F7",
         "gray-100": "#DFCCCC",
-        "gray-500": "#5E0000",
-        "primary-100": "#FFE1E0",
-        "primary-300": "#FFA6A3",
-        "primary-500": "#FF6B66",
-        "secondary-400": "#FFCD5B",
-        "secondary-500": "#FFC132",
+        "brown-100": "#4E3211",
+        "primary-100": "#DBE2EF",
+        "primary-300": "#3F72AF",
+        "primary-500": "#112D4E",
+        "secondary-500": "#EFE8DB",
       },
-      backgroundImage: (theme) => ({
-        "gradient-yellowred":
-          "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
+      backgroundImage: theme => ({
+        "gradient-yellowred": "linear-gradient(90deg, #FF616A 0%, #FFC837 100%)",
         "mobile-home": "url('./assets/HomePageGraphic.png')",
       }),
       fontFamily: {
@@ -26,7 +23,6 @@ module.exports = {
       content: {
         evolvetext: "url('./assets/EvolveText.png')",
         abstractwaves: "url('./assets/AbstractWaves.png')",
-        sparkles: "url('./assets/Sparkles.png')",
         circles: "url('./assets/Circles.png')",
       },
     },
